@@ -25,11 +25,6 @@ OpenCV2::Mat - Matrix operations
 
 =end pod
 
-role OpenCV2::Lib
-	{
-	constant LIB = 'libopencv_core.so.2.4.8';
-	}
-
 class OpenCV2::Mat is repr('CPointer')
 	{
 	constant LIB = 'libopencv_core.so.2.4.8';
@@ -38,7 +33,7 @@ class OpenCV2::Mat is repr('CPointer')
 	#
 	# CvMat* cvCreateMatHeader( int rows, int cols, int type );
 	#
-	sub cvCreateMatHeader( Int $rows, Int $cols, Int $type )
+	sub cvCreateMatHeader( int32 $rows, int32 $cols, int32 $type )
 		returns OpenCV2::Mat
 		is native(LIB) { * }
 
@@ -49,9 +44,9 @@ class OpenCV2::Mat is repr('CPointer')
 #  #                         int step CV_DEFAULT(CV_AUTOSTEP) );
 #  #
 #  sub cvInitMatheader( Mat $mat,
-#                       Int $rows, Int $cols, Int $type,
+#                       int32 $rows, int32 $cols, int32 $type,
 #                       CPointer $data = Nil,
-#                       Int $step = CV_AUTOSTEP )
+#                       int32 $step = CV_AUTOSTEP )
 #      returns Mat
 #      is native(LIB) { * }
 
@@ -59,7 +54,7 @@ class OpenCV2::Mat is repr('CPointer')
 	# 
 	# CvMat* cvCreateMat( int rows, int cols, int type );
 	#
-	sub cvCreateMat( Int $rows, Int $cols, Int $type )
+	sub cvCreateMat( int32 $rows, int32 $cols, int32 $type )
 		returns OpenCV2::Mat
 		is native(LIB) { * }
 
@@ -84,20 +79,20 @@ class OpenCV2::Mat is repr('CPointer')
 	#
 	# void cvCompleteSymm( CvMat* matrix, int LtoR CV_DEFAULT(0) );
 	#
-	sub cvCompleteSymm( OpenCV2::Mat $matrix, Int $LtoR = 0 )
+	sub cvCompleteSymm( OpenCV2::Mat $matrix, int32 $LtoR = 0 )
 		is native(LIB) { * }
 
-	method complete-symm( Int $LtoR = 0 )
+	method complete-symm( int32 $LtoR = 0 )
 		{
 		cvCompleteSymm( self, $LtoR )
 		}
 
-	method new( Int $rows, Int $cols, Int $type )
+	method new( int32 $rows, int32 $cols, int32 $type )
 		{
 		cvCreateMat( $rows, $cols, $type )
 		}
 
-	method new-header( Int $rows, Int $cols, Int $type )
+	method new-header( int32 $rows, int32 $cols, int32 $type )
 		{
 		cvCreateMatHeader( $rows, $cols, $type )
 		}

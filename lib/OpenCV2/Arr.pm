@@ -25,11 +25,6 @@ OpenCV2::Arr - Arr operations
 
 =end pod
 
-#role OpenCV2::Lib
-#	{
-#	constant LIB = 'libopencv_core.so.2.4.8';
-#	}
-
 class OpenCV2::Arr is repr('CPointer')
 	{
 	use OpenCV2::Scalar;
@@ -40,7 +35,7 @@ class OpenCV2::Arr is repr('CPointer')
 	# CV_8UC1 ... CV_64FC4 ...
 	#
 	sub cvGetElemType( OpenCV2::Arr $arr )
-		returns Int
+		returns int32
 		is native(LIB) { * }
 
 	method getElemType( )
@@ -52,181 +47,181 @@ class OpenCV2::Arr is repr('CPointer')
 	# optionally sizes of the dimensions
 	#
 # XXX
-#	sub cvGetDims( OpenCV2::Arr $arr, CArray[int] @sizes = Nil )
-#		returns Int
+#	sub cvGetDims( OpenCV2::Arr $arr, CArray[int32] @sizes = Nil )
+#		returns int32
 #		is native(LIB) { * }
 
 	# Retrieves size of a particular array dimension.
 	# For 2d arrays cvGetDimSize(arr,0) returns number of rows (image height)
 	# and cvGetDimSize(arr,1) returns number of columns (image width)
 	#
-	sub cvGetDimSize( OpenCV2::Arr $arr, Int $index )
-		returns Int
+	sub cvGetDimSize( OpenCV2::Arr $arr, int32 $index )
+		returns int32
 		is native(LIB) { * }
 
-	method getDimSize( Int $index )
+	method getDimSize( int32 $index )
 		{
 		cvGetDimSize( self, $index )
 		}
 
 	# value = arr(idx0,idx1,...)
 	#
-	sub cvGet1D( OpenCV2::Arr $arr, Int $idx0 )
+	sub cvGet1D( OpenCV2::Arr $arr, int32 $idx0 )
 		returns OpenCV2::Scalar
 		is native(LIB) { * }
 
-	method get1D( Int $idx0 )
+	method get1D( int32 $idx0 )
 		{
 		cvGet1D( self, $idx0 )
 		}
 
-	sub cvGet2D( OpenCV2::Arr $arr, Int $idx0, Int $idx1 )
+	sub cvGet2D( OpenCV2::Arr $arr, int32 $idx0, int32 $idx1 )
 		returns OpenCV2::Scalar
 		is native(LIB) { * }
 
-	method get2D( Int $idx0, Int $idx1 )
+	method get2D( int32 $idx0, int32 $idx1 )
 		{
 		cvGet2D( self, $idx0, $idx1 )
 		}
 
-	sub cvGet3D( OpenCV2::Arr $arr, Int $idx0, Int $idx1, Int $idx2 )
+	sub cvGet3D( OpenCV2::Arr $arr, int32 $idx0, int32 $idx1, int32 $idx2 )
 		returns OpenCV2::Scalar
 		is native(LIB) { * }
 
-	method get3D( Int $idx0, Int $idx1, Int $idx2 )
+	method get3D( int32 $idx0, int32 $idx1, int32 $idx2 )
 		{
 		cvGet3D( self, $idx0, $idx1, $idx2 )
 		}
 
 # XXX
-#	sub cvGetND( OpenCV2::Arr $arr, CArray[int] @idx )
+#	sub cvGetND( OpenCV2::Arr $arr, CArray[int32] @idx )
 #		returns OpenCV2::Scalar
 #		is native(LIB) { * }
 
 	# XXX
-#	method getND( CArray[int] @idx )
+#	method getND( CArray[int32] @idx )
 #		{
 #		cvGetND( self, $idx )
 #		}
 
 	# for 1-channel arrays
 	#
-	sub cvGetReal1D( OpenCV2::Arr $arr, Int $idx0 )
+	sub cvGetReal1D( OpenCV2::Arr $arr, int32 $idx0 )
 		returns num64
 		is native(LIB) { * }
 
-	method getReal1D( Int $idx0 )
+	method getReal1D( int32 $idx0 )
 		{
 		cvGetReal1D( self, $idx0 )
 		}
 
-	sub cvGetReal2D( OpenCV2::Arr $arr, Int $idx0, Int $idx1 )
+	sub cvGetReal2D( OpenCV2::Arr $arr, int32 $idx0, int32 $idx1 )
 		returns num64
 		is native(LIB) { * }
 
-	method getReal2D( Int $idx0, Int $idx1 )
+	method getReal2D( int32 $idx0, int32 $idx1 )
 		{
 		cvGetReal2D( self, $idx0, $idx1 )
 		}
 
-	sub cvGetReal3D( OpenCV2::Arr $arr, Int $idx0, Int $idx1, Int $idx2 )
+	sub cvGetReal3D( OpenCV2::Arr $arr, int32 $idx0, int32 $idx1, int32 $idx2 )
 		returns num64
 		is native(LIB) { * }
 
-	method getReal3D( Int $idx0, Int $idx1, Int $idx2 )
+	method getReal3D( int32 $idx0, int32 $idx1, int32 $idx2 )
 		{
 		cvGetReal3D( self, $idx0, $idx1, $idx2 )
 		}
 
 # XXX
-#	sub cvGetND( OpenCV2::Arr $arr, CArray[int] @idx )
+#	sub cvGetND( OpenCV2::Arr $arr, CArray[int32] @idx )
 #		returns num64
 #		is native(LIB) { * }
 
 #	# XXX
-#	method getRealND( CArray[int] @idx )
+#	method getRealND( CArray[int32] @idx )
 #		{
 #		cvGetRealND( self, $idx )
 #		}
 
 	# arr(idx0,idx1,...) = value
 	#
-	sub cvSet1D( OpenCV2::Arr $arr, Int $idx0, OpenCV2::Scalar $value )
+	sub cvSet1D( OpenCV2::Arr $arr, int32 $idx0, OpenCV2::Scalar $value )
 		returns num64
 		is native(LIB) { * }
 
-	method set1D( Int $idx0, OpenCV2::Scalar $value )
+	method set1D( int32 $idx0, OpenCV2::Scalar $value )
 		{
 		cvSet1D( self, $idx0, $value )
 		}
 
-	sub cvSet2D( OpenCV2::Arr $arr, Int $idx0, Int $idx1, OpenCV2::Scalar $value )
+	sub cvSet2D( OpenCV2::Arr $arr, int32 $idx0, int32 $idx1, OpenCV2::Scalar $value )
 		returns num64
 		is native(LIB) { * }
 
-	method set2D( Int $idx0, Int $idx1, OpenCV2::Scalar $value )
+	method set2D( int32 $idx0, int32 $idx1, OpenCV2::Scalar $value )
 		{
 		cvSet2D( self, $idx0, $idx1, $value )
 		}
 
-	sub cvSet3D( OpenCV2::Arr $arr, Int $idx0, Int $idx1, Int $idx2, OpenCV2::Scalar $value )
+	sub cvSet3D( OpenCV2::Arr $arr, int32 $idx0, int32 $idx1, int32 $idx2, OpenCV2::Scalar $value )
 		returns num64
 		is native(LIB) { * }
 
-	method set3D( Int $idx0, Int $idx1, Int $idx2, OpenCV2::Scalar $value )
+	method set3D( int32 $idx0, int32 $idx1, int32 $idx2, OpenCV2::Scalar $value )
 		{
 		cvSet3D( self, $idx0, $idx1, $idx2, $value )
 		}
 
 # XXX
 #	sub cvSetND( OpenCV2::Arr    $arr,
-#		     CArray[int]     @idx,
+#		     CArray[int32]     @idx,
 #		     OpenCV2::Scalar $value )
 #		returns num64
 #		is native(LIB) { * }
 
 	# XXX
-#	method setND( CArray[int] @idx, OpenCV2::Scalar $value )
+#	method setND( CArray[int32] @idx, OpenCV2::Scalar $value )
 #		{
 #		cvSetND( self, $idx, $value )
 #		}
 
 	# for 1-channel arrays
 	#
-	sub cvSetReal1D( OpenCV2::Arr $arr, Int $idx0, num64 $value )
+	sub cvSetReal1D( OpenCV2::Arr $arr, int32 $idx0, num64 $value )
 		returns num64
 		is native(LIB) { * }
 
-	method setReal1D( Int $idx0, num64 $value )
+	method setReal1D( int32 $idx0, num64 $value )
 		{
 		cvSetReal1D( self, $idx0, $value )
 		}
 
-	sub cvSetReal2D( OpenCV2::Arr $arr, Int $idx0, Int $idx1, num64 $value )
+	sub cvSetReal2D( OpenCV2::Arr $arr, int32 $idx0, int32 $idx1, num64 $value )
 		returns num64
 		is native(LIB) { * }
 
-	method setReal2D( Int $idx0, Int $idx1, num64 $value )
+	method setReal2D( int32 $idx0, int32 $idx1, num64 $value )
 		{
 		cvSetReal2D( self, $idx0, $idx1, $value )
 		}
 
-	sub cvSetReal3D( OpenCV2::Arr $arr, Int $idx0, Int $idx1, Int $idx2, num64 $value )
+	sub cvSetReal3D( OpenCV2::Arr $arr, int32 $idx0, int32 $idx1, int32 $idx2, num64 $value )
 		returns num64
 		is native(LIB) { * }
 
-	method setReal3D( Int $idx0, Int $idx1, Int $idx2, num64 $value )
+	method setReal3D( int32 $idx0, int32 $idx1, int32 $idx2, num64 $value )
 		{
 		cvSetReal3D( self, $idx0, $idx1, $idx2, $value )
 		}
 
 # XXX
-#	sub cvGetRealND( OpenCV2::Arr $arr, CArray[int] @idx, num64 $value )
+#	sub cvGetRealND( OpenCV2::Arr $arr, CArray[int32] @idx, num64 $value )
 #		returns num64
 #		is native(LIB) { * }
 
 #	# XXX
-#	method setRealND( CArray[int] @idx, num64 $value )
+#	method setRealND( CArray[int32] @idx, num64 $value )
 #		{
 #		cvSetRealND( self, $idx, $value )
 #		}
@@ -235,11 +230,11 @@ class OpenCV2::Arr is repr('CPointer')
 	# in case of sparse arrays it deletes the specified node
 	#
 # XXX
-#	sub cvClearND( OpenCV2::Arr $arr, CArray[int] @idx )
+#	sub cvClearND( OpenCV2::Arr $arr, CArray[int]32 @idx )
 #		is native(LIB) { * }
 
 	# XXX
-#	method clearND( CArray[int] @idx )
+#	method clearND( CArray[int32] @idx )
 #		{
 #		cvClearND( self, $idx )
 #		}
@@ -255,21 +250,22 @@ class OpenCV2::Arr is repr('CPointer')
 	# Mat header should be passed to the function
 	# else MatND header should be passed
 	#
-	sub cvReshapeMatND( OpenCV2::Arr $arr,
-			    Int $sizeof_header,
-			    OpenCV2::Arr $header,
-			    Int $new_cn, Int $new_dims, CArray[int] @new_sizes )
-		returns OpenCV2::Arr
-		is native(LIB) { * }
+# XXX
+#	sub cvReshapeMatND( OpenCV2::Arr $arr,
+#			    int32 $sizeof_header,
+#			    OpenCV2::Arr $header,
+#			    int32 $new_cn, int32 $new_dims, CArray[int32] @new_sizes )
+#		returns OpenCV2::Arr
+#		is native(LIB) { * }
 
 	# XXX
-	method reshapeMatND( Int $sizeof_header, OpenCV2::Arr $header,
-			     Int $new_cn, Int $new_dims, CArray[int] @new_sizes )
-		returns OpenCV2::Arr
-		{
-		cvReshapeMatND( self, $sizeof_header, $header,
-			        $new_cn, $new_dims, @new_sizes )
-		}
+#	method reshapeMatND( int32 $sizeof_header, OpenCV2::Arr $header,
+#			     int32 $new_cn, int32 $new_dims, CArray[int32] @new_sizes )
+#		returns OpenCV2::Arr
+#		{
+#		cvReshapeMatND( self, $sizeof_header, $header,
+#			        $new_cn, $new_dims, @new_sizes )
+#		}
 
 	# Repeats source 2d array several times in both horizontal and
 	# vertical direction to fill destination array
@@ -304,10 +300,10 @@ class OpenCV2::Arr is repr('CPointer')
 	# the pre-last dimension. That is, all the planes of the array
 	# must be joint (w/o gaps)
 	#
-	sub cvSetData( OpenCV2::Arr $arr, Pointer[void] $data, Int $step )
+	sub cvSetData( OpenCV2::Arr $arr, Pointer[void] $data, int32 $step )
 		is native(LIB) { * }
 
-	method setData( Pointer[void] $data, Int $step )
+	method setData( Pointer[void] $data, int32 $step )
 		{
 		cvSetData( self, $data, $step )
 		}
