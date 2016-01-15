@@ -1,0 +1,12 @@
+{
+	"name"        : "OpenCV2",
+	"version"     : "*",
+	"description" : "Binding to OpenCV2",
+	"depends"     : [ ],
+	"provides"    : {
+		"OpenCV2::Arr"	: "lib/OpenCV2/Arr.pm"
+		"OpenCV2::Scalar"	: "lib/OpenCV2/Scalar.pm"
+		"OpenCV2::Mat"	: "lib/OpenCV2/Mat.pm"
+	},
+	"source-url"  : "git://github.com/drforr/perl6-OpenCV2.git"
+}
