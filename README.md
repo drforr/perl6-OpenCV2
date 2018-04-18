@@ -13,7 +13,7 @@ Installation
 * Using zef (a module management tool bundled with Rakudo Star):
 
 ```
-    zef update && zef install Readline
+    zef update && zef install OpenCV2
 ```
 
 ## Author
