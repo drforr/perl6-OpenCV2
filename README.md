@@ -1,47 +1,24 @@
-Readline
+[![Build Status](https://travis-ci.org/drforr/perl6-OpenCV2.svg?branch=master)](https://travis-ci.org/drforr/perl6-OpenCV2)
+
+OpenCV2
 =======
 
-Readline provides a Perl 6 interface to libreadline.
-
-XXX This will probably be a frontend to Readline::Gnu when that's factored out.
-XXX For the moment keep all the code here in the Readline module.
+OpenCV2 is a set of mathematical libraries in C/C++, this library creates a NativeCall binding for them.
 
 Installation
 ============
 
-* Since Readline uses libreadline, libreadline.so.5 must be found in /usr/lib.
-To install libreadline5 on Debian for example, please use the following command:
+* OpenCV2 uses (of course) libopencv v2.0 or higher, this must be installed on your system.
+
+* Using zef (a module management tool bundled with Rakudo Star):
 
 ```
-	sudo apt-get install libreadline5
-```
-
-* Using panda (a module management tool bundled with Rakudo Star):
-
-```
-    panda update && panda install Readline
-```
-
-* Using ufo (a project Makefile creation script bundled with Rakudo Star) and make:
-
-```
-    ufo                    
-    make
-    make test
-    make install
-```
-
-## Testing
-
-To run tests:
-
-```
-    prove -e perl6
+    zef update && zef install Readline
 ```
 
 ## Author
 
-Jeffrey Goff, DrFOrr on #perl6, https://github.com/drforr/
+Jeffrey Goff, DrForr on #perl6, https://github.com/drforr/
 
 ## License
 
